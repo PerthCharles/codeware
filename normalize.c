@@ -19,13 +19,13 @@ int tmp=0;
   FILE *fin,*fout,*fmax;
   fin=fopen(argv[1],"r");
   fout=fopen(argv[2],"a");
-  fmax=fopen("my-config","r");
+  fmax=fopen("data/my-config","r");
 printf("%s %s\n",argv[1],argv[2]);
   fscanf(fmax,"%f %f %f %f %llu %llu %d",&colmax1[0],&colmax1[1],&colmax1[2],&colmax1[3],&colmax2[0],&colmax2[1],&colnum);
 
   fprintf(fout,"%d:w\n",colnum);
   
-printf("%f %d\n",colmax1[0],colnum);
+printf("col_max:%f col_num:%d\n",colmax1[0],colnum);
   while(fscanf(fin,"%f %f %f %f %llu %llu",&tmp1[0],&tmp1[1],&tmp1[2],&tmp1[3],&tmp2[0],&tmp2[1])!=-1)
   {
 //    printf("%f\n",tmp1[0]);
