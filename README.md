@@ -14,4 +14,31 @@ normalize.c
 toolfortest.m
     this matlab function file is a plot function for files outputed by convert.c
 ============
+2013-03-23-scomplement.c
+test
+test.c
+test.debug
+test-O2.debug
+    char型求补码在32位系统里按照32位求补
+    和两个objdump反汇编文件
+============
+check_tag_count.c
+    验证通过topmc-finegranted-trace-3.5在trace里面每隔2ms打的tag数量是否正确  
+============
+GetCfgContent.h
+    trace分割程序的头文件
+============
+trace_analyze_zhongbin-split-v3.c
+    最终的trace切割程序
+============
+run_simpoint.sh
+    一个运行simpoint的脚本
+============
+hello.c
+hello
+    学习Gnu AS
+============
+test_time.c
+	测试time.h头文件下的函数time()
+============
 
