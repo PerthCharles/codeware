@@ -50,4 +50,43 @@ mod-and-divide.c
 ============  
 20130415number-of-1.c  	
 	计算一个数的二进制表示中‘1’的个数
+============
+50-percent-cpu.sh
+	set the cpu usage to be 50%
+============
+c-exerice
+	a folder contained exerices for C
+============
+check-files.sh
+	a shell for helping myself to add a explanation
+============
+hello-asm
+	hello.c 的十六进制执行文件
+============
+hello.s
+	hello.c的汇编代码
+============
+hero-1.c
+	http://hero.pongo.cn/网站上的一道求连续字数组最大和的题
+============
+n-dice-sum.c
+	求n个骰子出现点数和为m的概率   剑指offer 43题
+============
+plant_a_array.m
+	从EXCEL中读指定数据，画出一个MATLAB图的代码
+============
+rdesktop-2013-04-24
+	auto-rdesktop备份
+============
+sine-cpu.c
+	control the cpu usage line to show the sina style
+============
+trap.sh
+	通过ctrl+c中断的方式，测试自己手动按键盘的速度
+============
+xwindow-demo.c
+	一个X window编程的demo
+============
+读文本数据-EXCEL宏.txt
+	通过EXCEL宏自动读取大量文本中数据
 

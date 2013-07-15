@@ -1,0 +1,115 @@
+Sub 读文本数据()
+'
+' 读文本数据 宏
+'
+' 快捷键: Ctrl+q
+'
+
+
+
+MyProgram = Array("400", "401", "410", "416", "429", "433", "434", "435", "436", "437", "444", "445", "447", "453", "454", "456", "458", "459", "464", "470", "471", "473", "481", "483", "blackscholes", "blackscholes-n4", "bodytrack", "bodytrack-n4", "canneal", "canneal-n4", "ferret", "ferret-n4", "splash2x.barnes", "splash2x.barnes-n4", "splash2x.fft", "splash2x.fft-n4", "splash2x.fmm", "splash2x.fmm-n4", "splash2x.radiosity", "splash2x.radiosity-n4", "splash2x.radix", "splash2x.radix-n4", "splash2x.raytrace", "splash2x.raytrace-n4", "splash2x.volrend", "splash2x.volrend-n4", "splash2x.water_spatial", "splash2x.water_spatial-n4", "streamcluster", "streamcluster-n4", "swaptions", "swaptions-n4", "vips", "vips-n4", "x264", "x264-n4")
+
+
+
+
+
+
+
+
+
+Application.ScreenUpdating = False
+    Dim fso As Scripting.FileSystemObject
+    Dim mytxt As Scripting.TextStream
+    
+    Dim myname As String        'myname暂存sheet名称
+    Dim myfile_1 As String      '一次处理5个文件
+    Dim myfile_2 As String
+    Dim myfile_3 As String
+    Dim myfile_4 As String
+    Dim myfile_5 As String
+    Dim handle_file As String    '当前处理的文件
+        
+
+    
+    Dim i As Long, j%
+    '****
+    Dim a() As String
+    Dim k As Long
+    '****
+     
+    ActiveSheet.Cells.Clear
+   'myfile = Application.GetOpenFilename("text files(*.txt),*.txt", , "请选择文本")
+   
+   '弹出窗口，接收用户输入
+   'Dim sprompt As String
+   'Dim stitle As String
+   'Dim sdefault As String
+   Dim sreturn As String
+   'sprompt = "请输入要读取的程序名"
+   'stitle = "输入程序名"
+   'sdefault = "400"
+   'sreturn = InputBox(sprompt, stitle, sdefault)
+   
+For var2 = 0 To 55
+   sreturn = MyProgram(var2)
+   
+   myfile_1 = "F:\zhazhongbin\桌面\EXCEL-HPC-CHINA\" & sreturn & "_500_matrix.txt"
+   myfile_2 = "F:\zhazhongbin\桌面\EXCEL-HPC-CHINA\" & sreturn & "_1000_matrix.txt"
+   myfile_3 = "F:\zhazhongbin\桌面\EXCEL-HPC-CHINA\" & sreturn & "_5000_matrix.txt"
+   myfile_4 = "F:\zhazhongbin\桌面\EXCEL-HPC-CHINA\" & sreturn & "_10000_matrix.txt"
+   myfile_5 = "F:\zhazhongbin\桌面\EXCEL-HPC-CHINA\" & sreturn & "_20000_matrix.txt"
+   
+    For var1 = 1 To 5
+     
+        '新建一个sheet
+        myname = ActiveSheet.Name
+        Sheets.Add after:=Sheets(myname)
+
+        If var1 = 1 Then
+            handle_file = myfile_1
+            myname = sreturn & "--" & "500"
+        ElseIf var1 = 2 Then
+            handle_file = myfile_2
+            myname = sreturn & "--" & "1000"
+        ElseIf var1 = 3 Then
+            handle_file = myfile_3
+          myname = sreturn & "--" & "5000"
+        ElseIf var1 = 4 Then
+            handle_file = myfile_4
+          myname = sreturn & "--" & "10000"
+        Else
+            handle_file = myfile_5
+           myname = sreturn & "--" & "20000"
+         End If
+        
+        ActiveSheet.Name = myname
+    
+        ' MsgBox handle_file
+    
+        Set fso = New Scripting.FileSystemObject
+         Set mytxt = fso.OpenTextFile(Filename:=handle_file, IOMode:=ForReading)
+
+    
+         With mytxt
+           i = 1
+       
+            Do Until .AtEndOfStream
+        
+               a = Split(.ReadLine, " ")
+             
+              For k = 0 To UBound(a)
+                   Sheets(myname).Cells(i, k + 1) = a(k)
+              Next k
+                   
+              Erase a
+
+              i = i + 1
+
+            Loop
+         
+            .Close
+        End With
+    Next var1
+Next var2
+ 
+End Sub
