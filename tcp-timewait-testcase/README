@@ -1,0 +1,12 @@
+Example:
+
+@server
+# python tw_server.py
+# ss -ant |grep TIME-WAIT
+# sleep 10; echo "==="
+# ss -ant |grep TIME-WAIT
+
+@client #
+# python tw_client.py
+# ss -ant |grep TIME-WAIT
+
